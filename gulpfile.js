@@ -11,7 +11,7 @@ const path = {
 		svg: 'src/img/svg/'
 	},
 	src: {
-		html: 'src/*.{html,htaccess}',
+		html: 'src/*.html',
 		style: 'src/scss/**/*.scss',
 		cssLibs: 'src/libs-css/**/*.css',
 		js: 'src/js/**/*.js',
@@ -21,7 +21,7 @@ const path = {
 		svg: 'src/img/svg/**/*.svg'
 	},
 	watch: {
-		html: ['src/*.{html,access}', 'src/template/*.html'],
+		html: ['src/*.html', 'src/template/*.html'],
 		style: 'src/scss/**/*.scss',
 		cssLibs: 'src/libs-css/**/*.css',
 		js: 'src/js/**/*.js',
@@ -32,8 +32,7 @@ const path = {
 };
 
 // Lazy Task
-function lazyRequireTask(taskName, path, options) {
-	options = options || {};
+function lazyRequireTask(taskName, path, options = {}) {
 	options.taskName = taskName;
 	gulp.task(taskName, function(callback) {
 		let task = require(path).call(this, options);

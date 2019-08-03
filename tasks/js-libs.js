@@ -18,7 +18,7 @@ module.exports = function(options) {
 			.pipe($.debug({title: 'DEBUG js-libs'}))
 			.pipe($.remember('jsLibs'))
 			.pipe($.concat('libs.min.js'))
-			.pipe($.uglifyjs())
+			.pipe($.uglify())
 			.pipe(gulp.dest(options.dist));
 	};	
 };
