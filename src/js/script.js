@@ -1,5 +1,3 @@
-/* global Swiper */
-
 'use strict';
 
 $(document).ready(function() {
@@ -46,16 +44,13 @@ $(document).ready(function() {
 			request.send();
 		} catch (e) {}
 	}) ();
-	
-
-	
 
 	// Resize function
 	(function fnResize() {
 		let doit; 
 
 		function resized() {
-			
+
 		}
 		
 		window.onresize = function() { 
