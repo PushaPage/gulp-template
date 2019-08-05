@@ -8,7 +8,11 @@ const path = {
 		js: 'dist/js/',
 		img: 'dist/img/',
 		fonts: 'dist/fonts/',
-		svg: 'src/img/svg/'
+		svg: 'src/img/svg/',
+		ftpAdd: 'dist/fonts/**/*',
+		ftpStyles: 'dist/css/**',
+		ftpScripts: 'dist/js/**',
+		ftpImages: 'dist/img/**/*'
 	},
 	src: {
 		html: 'src/*.html',
@@ -98,6 +102,26 @@ lazyRequireTask('browser-sync', './tasks/browser-sync.js', {
 	src: 'dist/**/*.*'
 });
 
+// FTP-add
+lazyRequireTask('ftp-add', './tasks/ftp/ftp-add.js', {
+	src: path.dist.ftpAdd
+});
+
+// FTP-styles
+lazyRequireTask('ftp-styles', './tasks/ftp/ftp-styles.js', {
+	src: path.dist.ftpStyles
+});
+
+// FTP-scripts
+lazyRequireTask('ftp-scripts', './tasks/ftp/ftp-scripts.js', {
+	src: path.dist.ftpScripts
+});
+
+// FTP-images
+lazyRequireTask('ftp-images', './tasks/ftp/ftp-images.js', {
+	src: path.dist.ftpImages
+});
+
 // Builder
 gulp.task('build', gulp.parallel(
 	'html',
@@ -125,3 +149,34 @@ gulp.task('default', gulp.series('build', gulp.parallel(
 	'watch',
 	'browser-sync'
 )));
+
+// Builder for FTP
+gulp.task('build-ftp', gulp.series(
+	gulp.parallel(
+		'style',
+		'cssLibs',
+		'js',
+		'jsLibs',
+		'img',
+		'fonts'
+	),
+	gulp.series(
+		'ftp-styles',
+		'ftp-scripts',
+		'ftp-images',
+		'ftp-add'
+	)
+));
+
+// Watcher for FTP
+lazyRequireTask('watch-ftp', './tasks/ftp/watcher-ftp.js', {
+	styleWatch: path.watch.style,
+	cssLibsWatch: path.watch.cssLibs,
+	jsWatch: path.watch.js,
+	jsLibsWatch: path.watch.jsLibs,
+	imgWatch: path.watch.img,
+	fontsWatch: path.watch.fonts
+});
+
+// Start Deploy
+gulp.task('deploy', gulp.series('build-ftp', gulp.parallel('watch-ftp')));

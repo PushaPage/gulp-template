@@ -6,4 +6,6 @@
 ## Start Gulp
 * The build can now be called by running `gulp` (without sourcemaps) or `gulp --dev` (with sourcemaps);
 * Clean created folder (`dist/`): `gulp clean`;
-* Run build `gulp build` (clear links on maps);
+* Run build `gulp build` (clear links for maps);
+* If you want to upload to the server and watching the changes, run `gulp deploy` (without sourcemaps) or `gulp deploy --dev` (with sourcemaps);
+* If you want to upload to the server, run `gulp build-ftp` (clear links for maps);
