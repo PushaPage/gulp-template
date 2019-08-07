@@ -160,7 +160,7 @@ gulp.task('build-ftp', gulp.series(
 		'img',
 		'fonts'
 	),
-	gulp.series(
+	gulp.parallel(
 		'ftp-styles',
 		'ftp-scripts',
 		'ftp-images',
