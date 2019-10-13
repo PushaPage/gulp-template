@@ -18,7 +18,9 @@ module.exports = function(options) {
 			.pipe($.cached('js'))
 			.pipe($.if(argv.dev, $.sourcemaps.init()))
 			.pipe($.babel({
-				presets: ['@babel/env'],
+				presets: [
+					['@babel/env', {'modules': false}]
+				],
 				// retainLines: true
 			}))
 			.pipe($.debug({title: 'DEBUG js'}))

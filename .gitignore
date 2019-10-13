@@ -1,5 +1,6 @@
-﻿.idea/
+﻿.vscode/
+.idea/
 node_modules/
-maps/
+dist/
 /**/Thumbs.db
 /**/*.DS_Store
