@@ -9,10 +9,10 @@ const path = {
 		img: 'dist/img/',
 		fonts: 'dist/fonts/',
 		svg: 'src/img/svg/',
-		ftpAdd: 'dist/fonts/**/*',
-		ftpStyles: 'dist/css/**',
-		ftpScripts: 'dist/js/**',
-		ftpImages: 'dist/img/**/*'
+		deployAdd: 'dist/fonts/**/*',
+		deployStyles: 'dist/css/**',
+		deployScripts: 'dist/js/**',
+		deployImages: 'dist/img/**/*'
 	},
 	src: {
 		html: 'src/*.html',
@@ -103,23 +103,23 @@ lazyRequireTask('browser-sync', './tasks/browser-sync.js', {
 });
 
 // FTP-add
-lazyRequireTask('ftp-add', './tasks/ftp/ftp-add.js', {
-	src: path.dist.ftpAdd
+lazyRequireTask('deploy-add', './tasks/deploy/deploy-add.js', {
+	src: path.dist.deployAdd
 });
 
 // FTP-styles
-lazyRequireTask('ftp-styles', './tasks/ftp/ftp-styles.js', {
-	src: path.dist.ftpStyles
+lazyRequireTask('deploy-styles', './tasks/deploy/deploy-styles.js', {
+	src: path.dist.deployStyles
 });
 
 // FTP-scripts
-lazyRequireTask('ftp-scripts', './tasks/ftp/ftp-scripts.js', {
-	src: path.dist.ftpScripts
+lazyRequireTask('deploy-scripts', './tasks/deploy/deploy-scripts.js', {
+	src: path.dist.deployScripts
 });
 
 // FTP-images
-lazyRequireTask('ftp-images', './tasks/ftp/ftp-images.js', {
-	src: path.dist.ftpImages
+lazyRequireTask('deploy-images', './tasks/deploy/deploy-images.js', {
+	src: path.dist.deployImages
 });
 
 // Builder
@@ -151,7 +151,7 @@ gulp.task('default', gulp.series('build', gulp.parallel(
 )));
 
 // Builder for FTP
-gulp.task('build-ftp', gulp.series(
+gulp.task('build-deploy', gulp.series(
 	gulp.parallel(
 		'style',
 		'cssLibs',
@@ -161,15 +161,15 @@ gulp.task('build-ftp', gulp.series(
 		'fonts'
 	),
 	gulp.parallel(
-		'ftp-styles',
-		'ftp-scripts',
-		'ftp-images',
-		'ftp-add'
+		'deploy-styles',
+		'deploy-scripts',
+		'deploy-images',
+		'deploy-add'
 	)
 ));
 
 // Watcher for FTP
-lazyRequireTask('watch-ftp', './tasks/ftp/watcher-ftp.js', {
+lazyRequireTask('watch-deploy', './tasks/deploy/watcher-deploy.js', {
 	styleWatch: path.watch.style,
 	cssLibsWatch: path.watch.cssLibs,
 	jsWatch: path.watch.js,
@@ -179,4 +179,4 @@ lazyRequireTask('watch-ftp', './tasks/ftp/watcher-ftp.js', {
 });
 
 // Start Deploy
-gulp.task('deploy', gulp.series('build-ftp', gulp.parallel('watch-ftp')));
+gulp.task('deploy', gulp.series('build-deploy', gulp.parallel('watch-deploy')));

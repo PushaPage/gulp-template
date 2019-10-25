@@ -4,9 +4,9 @@ const gulp = require('gulp');
 
 module.exports = function(options) {
 	return function() {
-		const ftpConfig = require('./ftp-config')();
-		const connect = ftpConfig.connect;
-		const path = ftpConfig.path;
+		const deployConfig = require('./deploy-config')();
+		const connect = deployConfig.connect;
+		const path = deployConfig.path;
 
 		return gulp.src(options.src, {base: './dist/js', buffer: false})
 			.pipe(connect.newer(`${path}js`))
