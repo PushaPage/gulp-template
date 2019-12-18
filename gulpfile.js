@@ -18,7 +18,7 @@ const path = {
 		html: 'src/*.html',
 		style: 'src/scss/**/*.scss',
 		cssLibs: 'src/libs-css/**/*.css',
-		js: 'src/js/**/*.js',
+		js: ['node_modules/@babel/polyfill/dist/polyfill.min.js', 'src/js/**/*.js'],
 		jsLibs: 'src/libs-js/**/*.js',
 		img: 'src/img/**/*',
 		fonts: 'src/fonts/**/*',

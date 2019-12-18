@@ -19,7 +19,7 @@ module.exports = function(options) {
 			.pipe($.if(argv.dev, $.sourcemaps.init()))
 			.pipe($.babel({
 				presets: [
-					['@babel/env', {'modules': false}]
+					['@babel/preset-env']
 				],
 				// retainLines: true
 			}))
