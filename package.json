@@ -2,7 +2,7 @@
 	"name": "starttemplate",
 	"version": "1.0.0",
 	"description": "Start gulp template",
-	"main": "index.js",
+	"private": true,
 	"scripts": {
 		"dev": "gulp --dev",
 		"dev-deploy": "gulp deploy --dev",
@@ -13,14 +13,13 @@
 	"author": "vadymstebakov",
 	"license": "ISC",
 	"devDependencies": {
-		"@babel/core": "^7.7.5",
-		"@babel/polyfill": "^7.7.0",
-		"@babel/preset-env": "^7.7.6",
+		"@babel/core": "^7.8.3",
+		"@babel/preset-env": "^7.8.3",
 		"browser-sync": "^2.26.7",
 		"del": "^4.1.1",
 		"gulp": "^4.0.2",
 		"gulp-autoprefixer": "^7.0.1",
-		"gulp-babel": "^8.0.0",
+		"gulp-babel": "^8.0.0-beta.2",
 		"gulp-cached": "^1.1.1",
 		"gulp-cheerio": "^1.0.0",
 		"gulp-concat": "^2.6.1",
@@ -28,13 +27,13 @@
 		"gulp-debug": "^4.0.0",
 		"gulp-filter": "^6.0.0",
 		"gulp-if": "^3.0.0",
-		"gulp-imagemin": "^6.1.1",
-		"gulp-load-plugins": "^2.0.1",
+		"gulp-imagemin": "^7.0.0",
+		"gulp-load-plugins": "^2.0.2",
 		"gulp-newer": "^1.4.0",
 		"gulp-notify": "^3.2.0",
 		"gulp-plumber": "^1.2.1",
 		"gulp-remember": "^1.0.1",
-		"gulp-rename": "^1.4.0",
+		"gulp-rename": "^2.0.0",
 		"gulp-replace": "^1.0.0",
 		"gulp-rigger": "^0.5.8",
 		"gulp-sass": "^4.0.2",
@@ -46,7 +45,10 @@
 		"gulp-util": "^3.0.8",
 		"imagemin-jpeg-recompress": "^6.0.0",
 		"vinyl-ftp": "^0.6.1",
-		"yargs": "^14.2.0"
+		"yargs": "^15.1.0"
+	},
+	"dependencies": {
+		"@babel/polyfill": "^7.8.3"
 	},
 	"browserslist": [
 		"> .1%",

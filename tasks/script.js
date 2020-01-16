@@ -17,12 +17,7 @@ module.exports = function(options) {
 			}))
 			.pipe($.cached('js'))
 			.pipe($.if(argv.dev, $.sourcemaps.init()))
-			.pipe($.babel({
-				presets: [
-					['@babel/preset-env']
-				],
-				// retainLines: true
-			}))
+			.pipe($.babel())
 			.pipe($.debug({title: 'DEBUG js'}))
 			.pipe($.remember('js'))
 			.pipe($.concat('script.min.js'))

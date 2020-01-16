@@ -45,8 +45,8 @@ $(document).ready(function() {
 		} catch (e) {}
 	}) ();
 
-	// Resize function
-	(function fnResize() {
+	// Resized function
+	(function fnResized() {
 		let doit; 
 
 		function resized() {
@@ -54,10 +54,8 @@ $(document).ready(function() {
 		}
 		
 		window.onresize = function() { 
-			clearTimeout(doit); 
-			doit = setTimeout(function() { 
-				resized(); 
-			}, 50); 
+			clearTimeout(doit);
+			doit = setTimeout(resized, 50); 
 		};
 	}) ();
 });
