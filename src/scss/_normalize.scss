@@ -22,6 +22,11 @@ html {
 	-webkit-text-size-adjust: 100%;
 }
 
+body {
+	scroll-behavior: smooth;
+	text-rendering: optimizeSpeed;
+}
+
 main {
 	display: block;
 }
@@ -72,7 +77,8 @@ sup {
 
 img {
 	max-width: 100%;
-	border-style: none;
+    border-style: none;
+    display: block;
 }
 
 button,
@@ -223,6 +229,15 @@ input[type=number] {
 
 select::-ms-expand {
     display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	* {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
 }
 
 @include input-placeholder {

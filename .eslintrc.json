@@ -8,19 +8,24 @@
     },
     "extends": "eslint:recommended",
     "parserOptions": {
-        "ecmaVersion": 2015,
-		"sourceType": "module"
+        "ecmaVersion": 2020
 	},
 	"globals": {
-		"Swiper": true,
-		"OverlayScrollbars": true
+		"Swiper": true
     },
     "rules": {
-        "indent": [2, "tab"],
-        "linebreak-style": [2, "windows"],
-        "quotes": [2, "single"],
-        "semi": [2, "always"],
-		"no-empty": 0,
-		"no-mixed-spaces-and-tabs": 0
+        "indent": ["warn", 4],
+		"linebreak-style": 0,
+		"quotes": ["warn", "single"],
+		"semi": ["warn", "always"],
+		"no-loop-func": ["warn"],
+		"no-empty": ["warn", {"allowEmptyCatch": true}],
+		"comma-style": ["warn", "last"],
+		"space-before-blocks": ["warn", "always"],
+		"no-mixed-spaces-and-tabs": ["warn"],
+		"no-unused-vars": ["warn"],
+		"no-extra-semi": ["warn"],
+        "no-console": ["warn"],
+        "no-var": ["warn"]
 	}
 }

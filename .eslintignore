@@ -1,2 +1,3 @@
-dist/js/*.js
-src/libs-js/*.js
+node_modules/
+/dist/
+src/libs-js/

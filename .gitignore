@@ -1,6 +1,9 @@
-﻿.vscode/
+﻿/**/Thumbs.db
+/**/*.DS_Store
+.vscode/
 .idea/
 node_modules/
-dist/
-/**/Thumbs.db
-/**/*.DS_Store
+yarn-error.lock
+yarn.lock
+package-lock.json
+/dist/
