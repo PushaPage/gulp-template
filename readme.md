@@ -15,12 +15,12 @@
 
 > For example: you call main function of library,
 ```
-   const mySlider = new Swiper(...);
+const mySlider = new Swiper(...);
 ```
 ```
-    "globals": {
-		"Swiper": true
-    },
+"globals": {
+    "Swiper": true
+},
 ```
 
 ## For the upload to the server
