@@ -11,7 +11,8 @@
 * `npm run build` runs build your project;
 * `npm run clean` cleans created folder (`dist/`);
 
-> When you include library you should add to **.eslintrc.json** name it library.\n
+> When you include library you should add to **.eslintrc.json** name it library.
+
 > For example: you call main function of library,
 ```
    const mySlider = new Swiper(...);
