@@ -13,10 +13,10 @@
 
 > When you include library you should add to **.eslintrc.json** name it library.
 > For example: you call main function of library,
-> ```
-    const mySlider = new Swiper(...);
 ```
-> ```
+   const mySlider = new Swiper(...);
+```
+```
     "globals": {
 		"Swiper": true
     },
