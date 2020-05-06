@@ -11,7 +11,7 @@ module.exports = function (options) {
         return gulp
             .src(options.src, {base: './dist/fonts', buffer: false})
             .pipe(connect.newer(`${path}fonts`))
-            .pipe(connect.dest(`${path}fonts`))
-            .pipe(connect.clean(`${path}fonts/**`, './dist/fonts'));
+            .pipe(connect.dest(`${path}fonts`));
+        // .pipe(connect.clean(`${path}fonts`, './dist/fonts'));
     };
 };

@@ -6,14 +6,15 @@ const $ = require('gulp-load-plugins')();
 module.exports = function () {
     return {
         connect: ftp.create({
-            host: 'host',
-            user: 'user',
-            password: 'password',
-            parallel: 10,
+            host: 'work1.nestersoft.com',
+            user: 'sitedev',
+            password: 'Fhruso39dhgs',
+            port: 21510,
+            parallel: 3,
             reload: true,
-            maxConnections: 15,
+            maxConnections: 5,
             log: $.util.log,
         }),
-        path: 'test4.octarine.com.ua/test/',
+        path: 'work1.nestersoft.com/wp-content/themes/worktime/assets/',
     };
 };

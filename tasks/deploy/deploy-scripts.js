@@ -11,7 +11,7 @@ module.exports = function (options) {
         return gulp
             .src(options.src, {base: './dist/js', buffer: false})
             .pipe(connect.newer(`${path}js`))
-            .pipe(connect.dest(`${path}js`))
-            .pipe(connect.clean(`${path}js/**`, './dist/js'));
+            .pipe(connect.dest(`${path}js`));
+        // .pipe(connect.clean(`${path}js`, './dist/js'));
     };
 };
