@@ -22,6 +22,8 @@ module.exports = function (options) {
             delete $.cached.caches.js[filepathdel.resolve(filepath)];
         });
 
+        gulp.watch(options.eslintWatch, gulp.series('eslint'));
+
         gulp.watch(options.jsLibsWatch, gulp.series('jsLibs', 'deploy-scripts')).on('unlink', function (filepath) {
             $.remember.forget('jsLibs', filepathdel.resolve(filepath));
             delete $.cached.caches.jsLibs[filepathdel.resolve(filepath)];

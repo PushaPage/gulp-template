@@ -142,7 +142,7 @@ gulp.task('default', gulp.series('build', gulp.parallel('watch', 'browser-sync')
 gulp.task(
     'build-deploy',
     gulp.series(
-        gulp.parallel('style', 'cssLibs', 'js', 'jsLibs', 'img', 'fonts'),
+        gulp.parallel('style', 'cssLibs', 'js', 'eslint', 'jsLibs', 'img', 'fonts'),
         gulp.parallel('deploy-styles', 'deploy-scripts', 'deploy-images', 'deploy-add')
     )
 );
@@ -152,6 +152,7 @@ lazyRequireTask('watch-deploy', './tasks/deploy/watcher-deploy.js', {
     styleWatch: path.watch.style,
     cssLibsWatch: path.watch.cssLibs,
     jsWatch: path.watch.js,
+    eslintWatch: path.src.eslint,
     jsLibsWatch: path.watch.jsLibs,
     imgWatch: path.watch.img,
     fontsWatch: path.watch.fonts,
