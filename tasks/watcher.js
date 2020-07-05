@@ -3,51 +3,51 @@
 const gulp = require('gulp');
 const $ = require('gulp-load-plugins')();
 const del = require('del');
-const filepathdel = require('path');
+const filePathDel = require('path');
 
 module.exports = function (options) {
     return function () {
         gulp.watch(options.htmlWatch, gulp.series('html')).on('unlink', function (filepath) {
-            $.remember.forget('html', filepathdel.resolve(filepath));
-            delete $.cached.caches.html[filepathdel.resolve(filepath)];
-            let filePathFromSrc = filepathdel.relative(filepathdel.resolve('src'), filepath);
-            let destFilePath = filepathdel.resolve('dist', filePathFromSrc);
+            $.remember.forget('html', filePathDel.resolve(filepath));
+            delete $.cached.caches.html[filePathDel.resolve(filepath)];
+            const filePathFromSrc = filePathDel.relative(filePathDel.resolve('src'), filepath);
+            const destFilePath = filePathDel.resolve('dist', filePathFromSrc);
             del.sync(destFilePath);
         });
 
         gulp.watch(options.styleWatch, gulp.series('style')).on('unlink', function (filepath) {
-            $.remember.forget('style', filepathdel.resolve(filepath));
-            delete $.cached.caches.style[filepathdel.resolve(filepath)];
+            $.remember.forget('style', filePathDel.resolve(filepath));
+            delete $.cached.caches.style[filePathDel.resolve(filepath)];
         });
 
         gulp.watch(options.cssLibsWatch, gulp.series('cssLibs')).on('unlink', function (filepath) {
-            $.remember.forget('cssLibs', filepathdel.resolve(filepath));
-            delete $.cached.caches.cssLibs[filepathdel.resolve(filepath)];
+            $.remember.forget('cssLibs', filePathDel.resolve(filepath));
+            delete $.cached.caches.cssLibs[filePathDel.resolve(filepath)];
         });
 
         gulp.watch(options.jsWatch, gulp.series('js')).on('unlink', function (filepath) {
-            $.remember.forget('js', filepathdel.resolve(filepath));
-            delete $.cached.caches.js[filepathdel.resolve(filepath)];
+            $.remember.forget('js', filePathDel.resolve(filepath));
+            delete $.cached.caches.js[filePathDel.resolve(filepath)];
         });
 
         gulp.watch(options.eslintWatch, gulp.series('eslint'));
 
         gulp.watch(options.jsLibsWatch, gulp.series('jsLibs')).on('unlink', function (filepath) {
-            $.remember.forget('jsLibs', filepathdel.resolve(filepath));
-            delete $.cached.caches.jsLibs[filepathdel.resolve(filepath)];
+            $.remember.forget('jsLibs', filePathDel.resolve(filepath));
+            delete $.cached.caches.jsLibs[filePathDel.resolve(filepath)];
         });
 
         gulp.watch(options.imgWatch, gulp.series('img')).on('unlink', function (filepath) {
-            delete $.cached.caches.img[filepathdel.resolve(filepath)];
-            let filePathFromSrc = filepathdel.relative(filepathdel.resolve('src'), filepath);
-            let destFilePath = filepathdel.resolve('dist', filePathFromSrc);
+            delete $.cached.caches.img[filePathDel.resolve(filepath)];
+            const filePathFromSrc = filePathDel.relative(filePathDel.resolve('src'), filepath);
+            const destFilePath = filePathDel.resolve('dist', filePathFromSrc);
             del.sync(destFilePath);
         });
 
         gulp.watch(options.fontsWatch, gulp.series('fonts')).on('unlink', function (filepath) {
-            delete $.cached.caches.fonts[filepathdel.resolve(filepath)];
-            let filePathFromSrc = filepathdel.relative(filepathdel.resolve('src'), filepath);
-            let destFilePath = filepathdel.resolve('dist', filePathFromSrc);
+            delete $.cached.caches.fonts[filePathDel.resolve(filepath)];
+            const filePathFromSrc = filePathDel.relative(filePathDel.resolve('src'), filepath);
+            const destFilePath = filePathDel.resolve('dist', filePathFromSrc);
             del.sync(destFilePath);
         });
     };

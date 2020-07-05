@@ -18,7 +18,7 @@ module.exports = function (options) {
                 })
             )
             .pipe($.cached('jsLibs'))
-            .pipe($.debug({title: 'DEBUG js-libs'}))
+            .pipe($.debug({ title: 'DEBUG js-libs' }))
             .pipe($.remember('jsLibs'))
             .pipe($.concat('libs.min.js'))
             .pipe($.uglify())

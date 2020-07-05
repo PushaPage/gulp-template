@@ -9,7 +9,7 @@ module.exports = function (options) {
             .src(options.src)
             .pipe($.cached('img'))
             .pipe($.newer(options.dist))
-            .pipe($.debug({title: 'DEBUG img'}))
+            .pipe($.debug({ title: 'DEBUG img' }))
             .pipe(
                 $.imagemin({
                     interlaced: true,

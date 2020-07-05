@@ -1,21 +1,10 @@
-@import "./var";
-@import "./mixins";
-
-/* Normalize -------------------------------------------------------------------- */
-@import "./normalize";
-
-/* Fonts -------------------------------------------------------------------- */
-@import "./fonts";
-
-/* Classes -------------------------------------------------------------------- */
-@import "./default-classes";
-
-/* Styles -------------------------------------------------------------------- */
-@import "./header";
-@import "./footer";
-@import "./popups";
-@import "./components";
-@import "./base";
-
-/* Media -------------------------------------------------------------------- */
-@import "./mq";
+@import "./helpers/_fonts";
+@import "./helpers/_var";
+@import "./helpers/_mixins";
+@import "./helpers/_custom-normalize";
+@import "./helpers/_custom-styles";
+@import "./components/_header";
+@import "./components/_footer";
+@import "./components/_popups";
+@import "./components/_base";
+@import "./components/_mq";
