@@ -18,7 +18,7 @@ module.exports = function (options) {
                 })
             )
             .pipe($.cached('cssLibs'))
-            .pipe($.debug({title: 'DEBUG css-libs'}))
+            .pipe($.debug({ title: 'DEBUG css-libs' }))
             .pipe($.remember('cssLibs'))
             .pipe($.concat('libs.css'))
             .pipe($.cssnano())

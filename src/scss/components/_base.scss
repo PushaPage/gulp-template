@@ -1,0 +1,17 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: 'opensansregular', sans-serif;
+}
+
+.wrap-helper {
+    height: 100%;
+	display: flex;
+	flex-direction: column;
+	
+	&__inner {
+		flex: 1 0 auto;
+	}
+}

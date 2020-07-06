@@ -21,7 +21,7 @@ module.exports = function (options) {
             .pipe($.cached('js'))
             .pipe($.if(argv.dev, $.sourcemaps.init()))
             .pipe($.babel())
-            .pipe($.debug({title: 'DEBUG js'}))
+            .pipe($.debug({ title: 'DEBUG js' }))
             .pipe($.remember('js'))
             .pipe($.concat('script.min.js'))
             .pipe($.uglify())
